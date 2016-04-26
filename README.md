@@ -1,89 +1,183 @@
-# Foundation for Emails Template
+This project is about creating a system of producing email newsletters from templates and markdown using the make command. The intention is that it will be as simple as it is to generate a static site like Pelican. It will be a Foundation for Emails 2 for python users. The following technologies/components/frameworks/languages will be used:
 
-[![devDependency Status](https://david-dm.org/zurb/foundation-emails-template/dev-status.svg)](https://david-dm.org/zurb/foundation-emails-template#info=devDependencies)
+[x] Github - for the repository
 
-**Please open all issues with this template on the main [Foundation for Emails](http://github.com/zurb/foundation-emails/issues) repo.**
+[x] Markdown - creating content
 
-This is the official starter project for [Foundation for Emails](http://foundation.zurb.com/emails), a framework for creating responsive HTML devices that work in any email client. It has a Gulp-powered build system with these features:
+[x] Python-markdown - used to handle and change the markdown into HTML
 
-- Handlebars HTML templates with [Panini](http://github.com/zurb/panini)
-- Simplified HTML email syntax with [Inky](http://github.com/zurb/inky)
-- Sass compilation
-- Image compression
-- Built-in BrowserSync server
-- Full email inlining process
+[ ] Make - controls the generation of of the resulting newsletter emails
 
-## Installation
+[ ] Fabfile - to help with the generation (not necessary)
 
-To use this template, your computer needs [Node.js](https://nodejs.org/en/) 0.12 or greater. The template can be installed with the Foundation CLI, or downloaded and set up manually.
+[ ] Gulp - Provides the facility to call tasks including but not limited to inline CSS
 
-### Using the CLI
+[x] SASS - The CSS generator
 
-Install the Foundation CLI with this command:
+[ ] Python-livereload - Shows the effects of changes on the fly
 
-```bash
-npm install foundation-cli --global
-```
+[ ] Beautifulsoup or scrapy - required to extract stuff out of websites
 
-Use this command to set up a blank Foundation for Emails project:
+[ ] Mailchimp or similar - for actually sending out the email
 
-```bash
-foundation new --framework emails
-```
+[x] Jinja2- the templating framework
 
-The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
+[x] Foundation For Emails 2 - is the framework that we will use for building responsive emails
 
-### Manual Setup
+[ ] Image compression - Not sure what tool will be used for this. may come from most likely from F4E 2
 
-To manually set up the template, first download it with Git:
+The overall level we are building a jekell or pelican for email newsletters, You start with a chunk or chunks of markdown button and bam you have an email newsletter ready to send out on mailchimp.
+The newsletter templates are based on http://foundation.zurb.com/emails/email-templates.html . Foundation for Emails 2 (F4E 2). Very similar to Pelican the static site generator. This is a lot tricker than you think because of the way email clients work. You have to consider how we are going to handle images etc. The markup for emails is based on tables since the email clients have limited support for modern CSS. F4E 2 helps but how do we render markdown to the Foundation Ink CSS. Well F4E 2 does a lot of the heavy lifting but how to take a generic markup format and turn it into the correct  Html and CSS that works with the various email clients.
 
-```bash
-git clone https://github.com/zurb/foundation-emails-template projectname
-```
+Immediate Task
 
-Then open the folder in your command line, and install the needed dependencies:
+[x] Learn Foundation Ink (http://foundation.zurb.com/emails.html)
 
-```bash
-cd projectname
-npm install
-```
+[x] Learn Markdown (https://daringfireball.net/projects/markdown/)
 
-## Build Commands
+[x] Review html2text (https://github.com/aaronsw/html2text)
 
-Run `npm start` to kick off the build process. A new browser tab will open with a server pointing to your project files.
+[x] Review Python-Markdown (http://pythonhosted.org/Markdown/index.html) - Progres: Python-Markdown Extra
 
-Run `npm run build` to inline your CSS into your HTML along with the rest of the build process.
+[x] Learn Jinga2 (http://jinja.pocoo.org/docs/dev/templates/)
 
-Run `npm run litmus` to build as above, then submit to litmus for testing. *AWS S3 Account details required (config.json)*
+[x] Some tutorial (http://packetpushers.net/python-jinja2-tutorial/)
 
-Run `npm run zip` to build as above, then zip HTML and images for easy deployment to email marketing services. 
+[x] Some tutorial (https://realpython.com/blog/python/primer-on-jinja-templating/)
 
-## Litmus Tests (config.json)
+[x] Look at Pelican & Pelicanthemes (http://docs.getpelican.com/en/3.6.3/) & (http://www.pelicanthemes.com/)
 
-Testing in Litmus requires the images to be hosted publicly. The provided gulp task handles this by automating hosting to an AWS S3 account. Provide your Litmus and AWS S3 account details in the `example.config.json` and then rename to `config.json`. Litmus config, and `aws.url` are required, however if you follow the [aws-sdk suggestions](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html) you don't need to supply the AWS credentials into this JSON.
+[x] Learn to convert from markdown to HTML/Foundation Ink
 
-```json
-{
-  "aws": {
-    "region": "us-east-1",
-    "accessKeyId": "YOUR_ACCOUNT_KEY",
-    "secretAccessKey": "YOUR_ACCOUNT_SECRET",
-    "params": {
-        "Bucket": "elasticbeanstalk-us-east-1-THIS_IS_JUST_AN_EXAMPLE"
-    },
-    "url": "https://s3.amazonaws.com/elasticbeanstalk-us-east-1-THIS_IS_JUST_AN_EXAMPLE"
-  },
-  "litmus": {
-    "username": "YOUR_LITMUS@EMAIL.com",
-    "password": "YOUR_ACCOUNT_PASSWORD",
-    "url": "https://YOUR_ACCOUNT.litmus.com",
-    "applications": ["ol2003","ol2007","ol2010","ol2011","ol2013","chromegmailnew","chromeyahoo","appmail9","iphone5s","ipad","android4","androidgmailapp"]
-  }
-}
-```
+[ ] Learn Mailchimp API
 
-For a full list of Litmus' supported test clients(applications) see their [client list](https://litmus.com/emails/clients.xml).
+NB:
 
-**Caution:** AWS Service Fees will result, however, are usually very low do to minimal traffic. Use at your own discretion.
+- Write in markdown which is converted automatically into a responsive email Foundation for Emails (Ink) template by Alexandre Deschamps (http://cakedown.alexandredeschamps.ca/)
 
+    - He created his own HTML-ish tags to simplify conversion from Markdown to HTML.
+- jgallen23/grunt-inline-css - grunt-inline-css - Grunt task for turning an html file with linked css to inline css. Great for emails.
+- A Guide to CSS Inlining in Email - Litmus Blog
+- Testing - Litmus and Email on Acid
+
+Note
+Need to build the css and html from the markdown text depending in the template.??
+Do we want to build the email directly from scratch using the markdown or just insert the markup content in a foundation ink template?
+No need to change the css unless we want certain color scheme and such.
+
+Considerations
+
+- Make extensions for Markdown for special user defined HTML-like tags to allow less generic templates (see first bullet in NB above)
+
+Constraints
+Points to Note
+
+- To send an HTML email just define the MIME type in the content/context head as part of the Meta data.
+- The CSS and style must be inline and not internal or External. (i.e. <h1 style=“color:blue;”>)
+- We will be using Gulp-inline for the inlining of the CSS
+- Currently looking at Foundation for emails 2 (http://foundation.zurb.com/emails/docs/)
+
+Input files
+
+- Markdown file with the content of the newsletter
+- HTML “template” file with the Foundation Ink CSS internal to the file with the basic format of the resulting output newsletter format. This file would contain header, footer, navbar etc. in it.
+
+Ideas
+Steps
+
+- Produce Template and verify the presentation.
+- Read in the Markdown file and produce HTML snippets
+- Insert the output snippets into the HTML Template newsletter file.
+- Convert the resulting HTML newsletter file into an CSS inline email file
+- Output/write the resulting HTML CSS inline newsletter email file.
+
+Problems/Issues
+
+- The author may want different parts of the content to go in different places (e.g. make two columns) How do we implement that.
+- It should work if the markdown files are changed or the templates are changed. i.e. ensure decoupling of templates and markdown component.
+
+Ultimately:
+We need to take the current F4E add Makefile, remove Panini and Handlebars and replace it with Jinja2, finally replace BrowserSync with Python-livereload. i.e. Pythonize F4E2
+
+Approach
+
+[x] Read Pelican Documentation
+
+[x] Make a virtualenv for the project
+
+[x] Install nodejs (pip install virtual-node)
+
+[x] Install foundation-cli using nom (npm install —global foundation-cli)
+
+[x] Create a new foundation email project
+
+[x] Play around with it by making templates and emails based on the knolly
+
+[ ] Make it run with make
+
+[ ] Remove Handlebars bit by bit and replace with Jinja2 bit by bit
+
+[ ] Create a repo in Github
+
+[ ] Remove Browersync and replace with python-livereload
+
+Initial Foundation Directory Structure
+
+src
+├── assets
+│   ├── img
+│   └── scss
+│       ├── _settings.scss
+│       └── app.scss
+├── helpers
+│   └── raw.js
+├── layouts
+│   └── default.html
+├── pages
+│   └── index.html
+└── partials
+ dist
+├── css
+│   └── app.css
+└── index.html
+
+Estimated Resulting Directory Structure
+
+src
+├── assets
+│   ├── img
+│   └── scss
+│       ├── _settings.scss
+│       └── app.scss
+├── helpers
+│   └── raw.js
+├── templates
+│   └── default.html
+├── emails
+       └── index.html
+
+Self notes
+
+- Gulp is the task runner. I need to see what tasks Gulp is calling and argument this with Makefile so that I can either circumvent the call to Panini and Handlebars or make it call Jinja2.
+- Depending on if I can call Jinja2 with Gulp then I will know how I need to use Make. Why? Because if I can call Jinja 2 to to do what Panini and Handlebars are doing then I can just replace that code in the gulp call if not then I have to remove the call in Gulp and call Jinja 2 directly in the make file.
+- npm start workflow - This command runs the script specified in package.js. In the case of this project that is `gulp` which can be instructions are found on the `gulpfile.babel.js`. This file does the requirement importing and then runs the necessary tasks. So I have three options:
+    - Let make call Jinja
+    - Let npm call Jinja
+    - Let gulp call Jinja
+- I intend to let Gulp call Jinja if not then npm (which I think is impossible) if not then finally let make call Jinja which I know for sure can be done.
+- I figured out how to run an external script using gulp and NPM. The next step I am going to try is to set up Jinja 2 and run it using gulp/npm
+    - Install Jinja in project
+    - then set it up
+    - Run it with gulp
+    - I was successfully able to run a script that imported Jinja and ran a template rendering. The next step is to make it do this with files. i.e. template and markup.
+- Stepping back a little.
+
+    - [x] I am going to makeup a markdown file and let the vanilla F4E2 produce the resulting HTML for it. The Markdown was placed in the  following tags
+        - <container> {{#markdown}} /* markdown content*/  {{/markdown}} </container>
+
+    - [x] Then I am going to write a python script using Jinja to convert the same markdown and a template hoping that it creates similar results. I installed python-markdown by using $ pip install markdown
+
+    - [ ] Need to us an external template and consider how to get all files in a directory like required.
+
+    - [ ] Finally let Gulp call the python script possible placing that call in the gulpfile.babel.js file.
 
