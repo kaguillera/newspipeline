@@ -1,0 +1,152 @@
+<container>
+<center>
+{{#markdown}}
+## My Responsive Email <small>With a nice, centered title</small>
+
+Everything markdown is converted automatically into a responsive email template powered by [Zurb’s Ink framework](http://zurb.com/ink/ "Ink is awesome!").
+
+</center>
+
+***
+
+## Easy columns, no more tables
+
+<row>
+
+    <column>
+        Since Markdown isn’t a layout tool, you cannot use it to generate columns. Instead, I introduced HTML-esque tags that allow you to create columns on the fly.
+
+    </column>
+    <column>
+    
+Using the `row` tag, you specify that the content inbetween will be a row. 
+
+    </column>
+    <column>
+
+Using the `column` tag between 2 `row` tags will automatically separate the content into 2 columns. There is a maximum of 4 columns on the same row.
+    
+    </column>
+</row>
+
+***
+
+## Buttons for everybody
+
+<row>
+
+Buttons take the width of the column.
+
+<button>
+[This is a link](http://www.google.com "Link to Google")
+</button>
+
+Or rounded corners.
+
+<button-rounded>
+[This is a link](http://www.google.com "Link to Google")
+</button-rounded>
+
+Or round corners.
+
+<button-round>
+[This is a link](http://www.google.com "Link to Google")
+</button-round>
+
+<column>
+
+They can have square corners. 
+
+<button>
+[This is a link](http://www.google.com "Link to Google")
+</button>
+
+Yup.
+
+<button-rounded>
+[This is a link](http://www.google.com "Link to Google")
+</button-rounded>
+
+Yup.
+
+<button-round>
+[This is a link](http://www.google.com "Link to Google")
+</button-round>
+
+</row>
+
+***
+
+## Images
+
+<!-- Yes, you can use some HTML and it won’t break. But it’s at your own risk :) -->
+
+ **#protip** <span style="color:#999;"> For the first image, I will use a `row` tag with no column just to keep the padding between the 3 pictures consistent. </span>
+
+<row>
+
+![A beautiful cat!](http://cakedown.alexandredeschamps.ca/assets/img/p1.jpg "Cat!")
+
+</row>
+
+<row>
+
+![A beautiful cat!](http://cakedown.alexandredeschamps.ca/assets/img/p2.jpg "Cat!")
+
+<column>
+
+![A beautiful cat!](http://cakedown.alexandredeschamps.ca/assets/img/p3.jpg "Cat!")
+
+</row>
+
+***
+
+## Lists
+
+<row>
+
+### Ordered list
+
+1. Item 1
+2. Item 2
+3. Item 3
+4. Item 4
+
+<column>
+
+### Unordered list
+
+* Something
+* Something else
+* Another thing
+* Whatever
+
+</row>
+
+*Note: Here’s a cool way to use italics!*
+
+***
+
+## Paragraph modifiers
+
+You can also make `inline code` to add code into other things.
+
+#### Quotes!
+
+> Wow, I can even quote people!
+
+***
+
+<center>
+## That’s pretty much it!
+
+I hope it will be as useful to you as it is to me :)
+
+Don’t forget to generate your HTML using the icon in the upper right corner once you’re done. For questions, comments and feature requests: [send me an email!][1]
+
+[1]: mailto:des.alexandre@gmail.com
+
+_Cheers!_
+{{/markdown}}
+</center>
+</container>

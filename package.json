@@ -1,0 +1,21 @@
+{
+  "name": "tester-file",
+  "version": "0.0.1",
+  "description": "Template for emails using Foundation for Emails project.",
+  "repository": "kaguillera/newspipeline",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp",
+    "short": "gulp shorthand",
+    "example": "gulp example"
+  },
+  "author": "Kwesi Aguillera <kaguillera@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "foundation-emails": "2.0.1"
+  },
+  "devDependencies": {
+    "gulp": "git+https://github.com/gulpjs/gulp.git#4.0",
+    "gulp-shell": "^0.5.2"
+  }
+}
