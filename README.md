@@ -1,6 +1,7 @@
 # Newsletter Pipepline
 
 This project is about creating a system of producing email newsletters from templates and markdown using the make command. The intention is that it will be as simple as it is to generate a static site like Pelican. It is based on the Foundation for Emails 2 framework but will be optimized for python users (at least this is the intention). The following will most likely be used (the list may most likely change:
+![71430af3-14f7-496c-ad80-d95829130b2f](https://cloud.githubusercontent.com/assets/1266505/14922618/99d761cc-0e06-11e6-90e5-1eaef7fb6490.png)
 
 - [x] [Github](https://github.com/)  - for the repository
 - [x] [Markdown](https://daringfireball.net/projects/markdown/) - creating content
