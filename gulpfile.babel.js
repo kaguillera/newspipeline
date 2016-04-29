@@ -12,7 +12,6 @@ import path     from 'path';
 import merge    from 'merge-stream';
 import beep     from 'beepbeep';
 import colors   from 'colors';
-import shell    from 'gulp-shell';
 
 
 const $ = plugins();
@@ -22,11 +21,10 @@ const PRODUCTION = !!(yargs.argv.production);
 
 // Declar var so that both AWS and Litmus task can use it.
 var CONFIG;
-var shell = require('gulp-shell')
 
 // Build the "dist" folder by running all of the above tasks
 gulp.task('build',
-  gulp.series(clean, 'jinja', sass, images, inline));
+  gulp.series(clean, pages, sass, images, inline));
 
 // Build emails, run the server, and watch for file changes
 gulp.task('default',
@@ -60,13 +58,6 @@ function pages() {
     .pipe(inky())
     .pipe(gulp.dest('dist'));
 }
-
-// Replacement for Panini calling Jinja
-function jinja() {
-    return 
-gulp.task('jinja',
-    shell.task(['python convert.py src/pages/markdown.md -o dist/markdown3.html']))
-
 
 
 // Reset Panini's cache of layouts and partials

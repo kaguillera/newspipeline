@@ -6,38 +6,11 @@ import sys
 import jinja2
 import markdown
 
+from os import listdir
+from os.path import isfile, join
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
-
-TEMPLATE = """<!DOCTYPE html>
-<html>
-<head>
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: sans-serif;
-        }
-        code, pre {
-            font-family: monospace;
-        }
-        h1 code,
-        h2 code,
-        h3 code,
-        h4 code,
-        h5 code,
-        h6 code {
-            font-size: inherit;
-        }
-    </style>
-</head>
-<body>
-<div class="container">
-{{body}}
-</div>
-</body>
-</html>
-"""
-
 
 def parse_args(args=None):
     d = 'Make a complete, styled HTML document from a Markdown file.'
@@ -52,13 +25,26 @@ def parse_args(args=None):
 
 
 def main(args=None):
-    args = parse_args(args)
-    md = args.mdfile.read()
-    #extensions = ['extra', 'smartypants']
-    #html = markdown.markdown(md, extensions=extensions, output_format='html5')
-    html = markdown.markdown(md, output_format='html5')
-    doc = jinja2.Template(TEMPLATE).render(body=html)
-    args.out.write(doc)
+    src_path = 'src/pages'
+    dist_path = 'dist'
+    with open('src/layouts/template.html', 'r') as f:
+        template = f.read() 
+    
+    onlyfiles = [f for f in listdir(src_path) if isfile(join(src_path, f))]
+    for file in onlyfiles:
+        name, ext = file.split('.')
+        if ext == 'md':
+            infile = join(src_path, file)
+            outfile = '{}/{}.{}'.format(dist_path, name, 'html')
+            title = "Markdown to HTML from {}".format(name)  
+            
+            with open(infile, 'r') as f:
+                md = f.read() 
+            html = markdown.markdown(md, output_format='html5')
+            doc = jinja2.Template(template).render(body=html, subject=title)
+            
+            with open(outfile, 'w') as out :
+                 out.write(doc)
 
 
 if __name__ == '__main__':
