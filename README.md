@@ -46,6 +46,15 @@ The overall idea is that we are building a jekell or pelican for email newslette
 ##### Ultimately:
 We need to take the current F4E add Makefile, remove Panini and Handlebars and replace it with Jinja2, finally replace BrowserSync with Python-livereload. i.e. Pythonize F4E2
 
+__Initial Foundation Directory Structure__
+![screen shot 2016-04-29 at 11 46 25 am](https://cloud.githubusercontent.com/assets/1266505/14922643/c8a4ad3e-0e06-11e6-935e-df4e76ebae06.png)
+
+__Estimated Resulting Directory Structure__
+![screen shot 2016-04-29 at 11 46 38 am](https://cloud.githubusercontent.com/assets/1266505/14922647/ccc90b08-0e06-11e6-9dc8-84634d645e8b.png)
+
+
+
+
 #### Progress/TODO
 
 - [x] Read Pelican Documentation
