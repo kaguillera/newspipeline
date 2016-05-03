@@ -13,7 +13,7 @@
   "author": "Kwesi Aguillera <kaguillera@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "foundation-emails-jinja": "0.0.1"
+    "foundation-emails": "2.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.3.26",
