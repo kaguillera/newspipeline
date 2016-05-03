@@ -46,11 +46,8 @@ function clean(done) {
 }
 
 
-// Using Jinja instead of panini to convert markdown and merge 
-// HTML files 
-
-
-// Compile layouts, pages, and partials into flat HTML files
+// Convert the markdown files to HTML and combine them to layout 
+// using jinja in convert.py 
 // Then parse using Inky templates
 function pages() {
   return gulp.src('src/pages/**/*.md')
