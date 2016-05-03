@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#/usr/bin/env python
 
 import argparse
 import sys
@@ -6,8 +6,8 @@ import sys
 import jinja2
 import markdown
 
-from os import listdir
-from os.path import isfile, join
+from os import listdir, makedirs
+from os.path import isfile, join, exists
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -30,6 +30,9 @@ def main(args=None):
     with open('src/layouts/template.html', 'r') as f:
         template = f.read() 
     
+    if not exists(dist_path):
+        makedirs(dist_path)
+    
     onlyfiles = [f for f in listdir(src_path) if isfile(join(src_path, f))]
     for file in onlyfiles:
         name, ext = file.split('.')
@@ -43,9 +46,9 @@ def main(args=None):
             html = markdown.markdown(md, output_format='html5')
             doc = jinja2.Template(template).render(body=html, subject=title)
             
-            with open(outfile, 'w') as out :
-                 out.write(doc)
-
+            out = open(outfile, 'w')
+            out.write(doc)
+            out.close()
 
 if __name__ == '__main__':
     sys.exit(main())

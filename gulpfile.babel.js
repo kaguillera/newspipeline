@@ -12,7 +12,7 @@ import path     from 'path';
 import merge    from 'merge-stream';
 import beep     from 'beepbeep';
 import colors   from 'colors';
-
+import shell    from 'gulp-shell'
 
 const $ = plugins();
 
@@ -45,16 +45,16 @@ function clean(done) {
   rimraf('dist', done);
 }
 
+
+// Using Jinja instead of panini to convert markdown and merge 
+// HTML files 
+
+
 // Compile layouts, pages, and partials into flat HTML files
 // Then parse using Inky templates
 function pages() {
-  return gulp.src('src/pages/**/*.html')
-    .pipe(panini({
-      root: 'src/pages',
-      layouts: 'src/layouts',
-      partials: 'src/partials',
-      helpers: 'src/helpers'
-    }))
+  return gulp.src('src/pages/**/*.md')
+    .pipe(shell(['python convert.py']))
     .pipe(inky())
     .pipe(gulp.dest('dist'));
 }
