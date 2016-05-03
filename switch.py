@@ -18,7 +18,7 @@ if __name__ == '__main__':
     elif sys.argv[1] == "--to-orig":
         try:
             print "Backing up Jinja scripts..."
-            rename('gulpfile.js','gulpfile.js.jinja')
+            rename('gulpfile.babel.js','gulpfile.babel.js.jinja')
             rename('package.json','package.json.jinja')
             print "Activating original scripts..."
             rename('gulpfile.babel.js.orig','gulpfile.babel.js')
@@ -31,7 +31,7 @@ if __name__ == '__main__':
             rename('gulpfile.babel.js','gulpfile.babel.js.orig')
             rename('package.json','package.json.orig')
             print "Activating Jinja scripts..."
-            rename('gulpfile.js.jinja','gulpfile.js')
+            rename('gulpfile.babel.js.jinja','gulpfile.babel.js')
             rename('package.json.jinja','package.json')
         except:
             print "Already in Jinja state!!"
