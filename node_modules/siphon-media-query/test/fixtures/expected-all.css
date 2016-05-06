@@ -1,0 +1,11 @@
+@media screen and (min-width: 600px) {
+  p {
+    color: blue;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  p {
+    color: green;
+  }
+}
