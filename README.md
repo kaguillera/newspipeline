@@ -35,13 +35,27 @@ virtualenv
 
 
 ### Install Guide
-$ git clone https://github.com/kaguillera/newspipeline.git
-$ cd newspipeline
-$ rm -rf env
-$ virtualenv --prompt=“[newspipeline] “ env
-$ source env/bin/activate
-$ pip install -r requirements.txt
-$ npm start
+- Clone repo  
+`$ git clone https://github.com/kaguillera/newspipeline.git`
+
+- Change directory to project  
+`$ cd newspipeline`
+
+- Once in directory create a virtualenv using the following command  
+`$ virtualenv --prompt=“[newspipeline] “ env`
+
+- Activate the virtual environment  
+`$ source env/bin/activate`
+
+- Install requirements using pip  
+`$ pip install -r requirements.txt`
+
+- Run the porject  
+`$ npm start`
+
+As with the original Foundation for email project once it is successful your browser will
+open with the index page that would have been created in the `dist` directory.
+
 
 
 ### Plan of Action
