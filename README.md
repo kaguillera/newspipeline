@@ -29,6 +29,20 @@ The overall idea is that we are building a jekell or pelican for email newslette
 - [A Guide to CSS Inlining in Email](https://litmus.com/blog/a-guide-to-css-inlining-in-email)
 - Testing - [Litmus](https://litmus.com/) and [Email on Acid](https://www.emailonacid.com/)
 
+### Requirements
+Python 2.7
+virtualenv 
+
+
+### Install Guide
+$ git clone https://github.com/kaguillera/newspipeline.git
+$ cd newspipeline
+$ rm -rf env
+$ virtualenv --prompt=“[newspipeline] “ env
+$ source env/bin/activate
+$ pip install -r requirements.txt
+$ npm start
+
 
 ### Plan of Action
 *(for my personal use)*
