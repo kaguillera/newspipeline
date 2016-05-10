@@ -50,7 +50,7 @@ function clean(done) {
 // using jinja in convert.py 
 // Then parse using Inky templates
 function pages() {
-  return gulp.src('src/pages/**/*.md')
+  return gulp.src('src/pages/**/*', '!src/pages/**/*.md')
     .pipe(shell(['python convert.py']))
     .pipe(inky())
     .pipe(gulp.dest('dist'));
