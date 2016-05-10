@@ -21,6 +21,8 @@ all: clean install
 	source ./env/bin/activate; \
 	npm start; \        
 
+serve:
+	python serve.py
 
 clean:
 	rm -rf env

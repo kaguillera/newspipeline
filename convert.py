@@ -1,4 +1,4 @@
-#/usr/bin/env python
+#!/usr/bin/env python
 
 import argparse
 import sys
@@ -11,17 +11,6 @@ from os.path import isfile, join, exists
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-
-def parse_args(args=None):
-    d = 'Make a complete, styled HTML document from a Markdown file.'
-    parser = argparse.ArgumentParser(description=d)
-    parser.add_argument('mdfile', type=argparse.FileType('r'), nargs='?',
-                        default=sys.stdin,
-                        help='File to convert. Defaults to stdin.')
-    parser.add_argument('-o', '--out', type=argparse.FileType('w'),
-                        default=sys.stdout,
-                        help='Output file name. Defaults to stdout.')
-    return parser.parse_args(args)
 
 
 def main(args=None):
