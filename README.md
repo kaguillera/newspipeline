@@ -67,13 +67,13 @@ created in the `dist` directory.
 
 
 ### Other make options
-- Reset project by deleting the `env` and `dist` directory
+- Reset project by deleting the `env` and `dist` directory  
 `$ make clean`
 
-- Calls the npm gulp build script
+- Calls the npm gulp build script  
 `$ make build`
 
-- As expected does everything. Clean, env, install and start.
+- As expected does everything. Clean, env, install and start.  
 `$ make all`
 
 
