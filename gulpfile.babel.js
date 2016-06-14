@@ -28,7 +28,7 @@ gulp.task('build',
 
 // Build emails, run the server, and watch for file changes
 gulp.task('default',
-  gulp.series('build', server, watch));
+  gulp.series('build', server));
 
 
 // Build emails, then send to litmus
@@ -89,20 +89,28 @@ function inline() {
 }
 
 // Start a server with LiveReload to preview the site in
+//function server(done) {
+//  browser.init({
+//    server: 'dist'
+//  });
+//  done();
+//}
+
+// Start a python LiveReload server to preview emails  
+// using serve.py 
 function server(done) {
-  browser.init({
-    server: 'dist'
-  });
-  done();
+  return gulp.src('dist/pages/**/*.html')
+    .pipe(shell(['python serve.py']))
+    done();
 }
 
 // Watch for file changes
-function watch() {
-  gulp.watch('src/pages/**/*.html', gulp.series(pages, inline, browser.reload));
-  gulp.watch(['src/layouts/**/*', 'src/partials/**/*'], gulp.series(resetPages, pages, inline, browser.reload));
-  gulp.watch(['../scss/**/*.scss', 'src/assets/scss/**/*.scss'], gulp.series(sass, pages, inline, browser.reload));
-  gulp.watch('src/assets/img/**/*', gulp.series(images, browser.reload));
-}
+//function watch() {
+//  gulp.watch('src/pages/**/*.html', gulp.series(pages, inline, browser.reload));
+//  gulp.watch(['src/layouts/**/*', 'src/partials/**/*'], gulp.series(resetPages, pages, inline, browser.reload));
+//  gulp.watch(['../scss/**/*.scss', 'src/assets/scss/**/*.scss'], gulp.series(sass, pages, inline, browser.reload));
+//  gulp.watch('src/assets/img/**/*', gulp.series(images, browser.reload));
+//}
 
 // Inlines CSS into HTML, adds media query CSS into the <style> tag of the email, and compresses the HTML
 function inliner(css) {

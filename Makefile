@@ -17,14 +17,18 @@ build:
 	npm build; \        
 
     
-all: clean install
+all: clean_all install
 	source ./env/bin/activate; \
 	npm start; \        
 
 serve:
+	source ./env/bin/activate; \
 	python serve.py
 
-clean:
+clean_dist: 
+	rm -rf dist
+
+clean_all:
 	rm -rf env
 	rm -rf dist
 	find . -name \*.pyc -delete
