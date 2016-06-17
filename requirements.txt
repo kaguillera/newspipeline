@@ -1,5 +1,13 @@
 Jinja2==2.8
 Markdown==2.6.6
 MarkupSafe==0.23
+backports-abc==0.4
+backports.ssl-match-hostname==3.5.0.1
+certifi==2016.2.28
+libsass==0.11.1
+livereload==2.4.1
+singledispatch==3.4.0.3
+six==1.10.0
+tornado==4.3
 virtual-node==0.1.0
 wsgiref==0.1.2

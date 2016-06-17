@@ -23,7 +23,7 @@ all: clean_all install
 
 serve:
 	source ./env/bin/activate; \
-	python serve.py
+    python serve.py
 
 clean_dist: 
 	rm -rf dist
