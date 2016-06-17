@@ -7,12 +7,18 @@ install: env
 	pip install -r requirements.txt; \
 
 
-start:
+start_npm:
 	source ./env/bin/activate; \
 	npm start; \        
 
+start_python:
+	source ./env/bin/activate; \
+	python convert.py; \
+    python style.py; \
+    python serve.py; \        
 
-build:
+
+build__npm:
 	source ./env/bin/activate; \
 	npm build; \        
 
