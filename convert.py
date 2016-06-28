@@ -12,10 +12,10 @@ from os.path import isfile, join, exists
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-
 def main(args=None):
     src_path = 'src/pages'
     dist_path = 'dist'
+
     with open('src/layouts/template.html', 'r') as f:
         template = f.read() 
     
