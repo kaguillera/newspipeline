@@ -111,5 +111,5 @@ __Estimated Resulting Directory Structure__
 - [x] Make it run with make
 - [x] Remove Handlebars bit by bit and replace with Jinja2 bit by bit
 - [x] Create a repo in Github
-- [ ] Remove Browersync and replace with python-livereload
+- [x] Remove Browersync and replace with python-livereload
 
